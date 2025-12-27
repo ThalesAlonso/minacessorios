@@ -1,27 +1,27 @@
 <section class="hero" id="hero">
   <div class="hero__content">
-    <p class="hero__eyebrow">Lançamentos em laços de cabelo</p>
-    <h1>Laços delicados para quem quer brilhar com conforto o dia todo.</h1>
+    <p class="hero__eyebrow">Lancamentos em lacos de cabelo</p>
+    <h1>Lacos delicados para quem quer brilhar com conforto o dia todo.</h1>
     <p class="hero__text">
-      Curadoria de laços, tiaras e acessórios femininos feitos à mão, com materiais hipoalergênicos e acabamento
-      premium. Catálogo pronto para receber carrinho, checkout e PayPal.
+      Curadoria de lacos, tiaras e acessorios feitos a mao, com materiais hipoalergenicos e acabamento premium. Catalogo
+      pronto para carrinho, frete e pagamento.
     </p>
     <div class="hero__actions">
       <a class="primary-btn" href="#novidades">Ver novidades</a>
-      <a class="ghost-btn" href="#colecoes">Coleções</a>
+      <a class="ghost-btn" href="#colecoes">Colecoes</a>
     </div>
     <div class="hero__stats">
       <div>
         <p class="hero__number">+3500</p>
-        <p class="hero__label">Clientes com laços sem marcar o cabelo</p>
+        <p class="hero__label">Clientes com lacos sem marcar o cabelo</p>
       </div>
       <div>
         <p class="hero__number">24h</p>
-        <p class="hero__label">Envio rápido com rastreio</p>
+        <p class="hero__label">Envio rapido com rastreio</p>
       </div>
       <div>
         <p class="hero__number">Pronto</p>
-        <p class="hero__label">Integração PayPal e carrinho em desenvolvimento</p>
+        <p class="hero__label">Carrinho, frete e PayPal habilitados aqui</p>
       </div>
     </div>
   </div>
@@ -29,7 +29,9 @@
     <app-accessory-carousel
       [items]="heroAccessories"
       title="Favoritos da semana"
-      subtitle="Os laços mais pedidos com novos acabamentos e fitas exclusivas."
+      subtitle="Os lacos mais pedidos com novos acabamentos e fitas exclusivas."
+      (view)="openAccessory($event)"
+      (add)="addToCart($event)"
     ></app-accessory-carousel>
   </div>
 </section>
@@ -40,20 +42,20 @@
       <p class="eyebrow">Novidades</p>
       <h2>Chegaram agora na Mina</h2>
       <p class="muted">
-        Itens com estoque limitado, feitos com cuidado para acompanhar desde o uniforme da escola até o look de festa.
+        Itens com estoque limitado, feitos com cuidado para acompanhar desde o uniforme da escola ate o look de festa.
       </p>
     </div>
-    <a class="ghost-btn" href="#contato">Avise-me quando lançar o checkout</a>
+    <a class="ghost-btn" href="#contato">Avise-me quando lancar o checkout</a>
   </header>
 
   <div class="grid">
     <article class="card" *ngFor="let item of newArrivals">
-      <div class="card__visual">
+      <button type="button" class="card__visual" (click)="openAccessory(item)">
         <img [src]="item.image" [alt]="item.name" loading="lazy" />
         <div class="swatches" *ngIf="item.colors?.length">
           <span class="swatch" *ngFor="let color of item.colors" [style.background]="color"></span>
         </div>
-      </div>
+      </button>
       <div class="card__body">
         <div class="card__meta">
           <span class="chip chip--soft">{{ item.category | titlecase }}</span>
@@ -64,6 +66,10 @@
         <div class="pill-group" *ngIf="item.tags?.length">
           <span class="pill" *ngFor="let tag of item.tags">{{ tag }}</span>
         </div>
+        <div class="card__actions">
+          <button class="ghost-btn" type="button" (click)="openAccessory(item)">Ver detalhes</button>
+          <button class="primary-btn" type="button" (click)="addToCart(item)">Adicionar</button>
+        </div>
       </div>
     </article>
   </div>
@@ -72,11 +78,9 @@
 <section class="section section--surface" id="colecoes">
   <header class="section__header">
     <div>
-      <p class="eyebrow">Coleções exclusivas</p>
-      <h2>Para cada momento, um laço</h2>
-      <p class="muted">
-        Kits e peças únicas com acabamento premium. Ideal para fotos, eventos e presentes especiais.
-      </p>
+      <p class="eyebrow">Colecoes exclusivas</p>
+      <h2>Para cada momento, um laco</h2>
+      <p class="muted">Kits e pecas unicas com acabamento premium. Ideal para fotos, eventos e presentes especiais.</p>
     </div>
     <a class="primary-btn" href="#contato">Quero reservar</a>
   </header>
@@ -86,7 +90,7 @@
       <div class="collection__badge" [style.background]="collection.accent + '1a'">{{ collection.badge }}</div>
       <h3>{{ collection.title }}</h3>
       <p class="muted">{{ collection.detail }}</p>
-      <button class="ghost">Ver peças</button>
+      <button class="ghost">Ver pecas</button>
     </article>
   </div>
 </section>
@@ -94,11 +98,11 @@
 <section class="section">
   <header class="section__header">
     <div>
-      <p class="eyebrow">Experiência de compra</p>
+      <p class="eyebrow">Experiencia de compra</p>
       <h2>Pronto para integrar carrinho e PayPal</h2>
       <p class="muted">
-        Estrutura planejada para autenticação, carrinho, preferências de entrega e checkout seguro. Ideal para escalar
-        sua operação de acessórios femininos.
+        Estrutura planejada para autenticacao, carrinho, preferencias de entrega e checkout seguro. Ideal para escalar
+        sua operacao de acessorios femininos.
       </p>
     </div>
   </header>
@@ -109,5 +113,29 @@
       <h3>{{ item.title }}</h3>
       <p class="muted">{{ item.description }}</p>
     </article>
+  </div>
+</section>
+
+<section class="detail-drawer" *ngIf="selectedAccessory as selected">
+  <div class="detail-drawer__backdrop" (click)="closeAccessory()" aria-hidden="true"></div>
+  <div class="detail-drawer__card" role="dialog" aria-modal="true">
+    <button type="button" class="detail-drawer__close" (click)="closeAccessory()">Fechar</button>
+    <div class="detail-drawer__media">
+      <img [src]="selected.image" [alt]="selected.name" loading="lazy" />
+    </div>
+    <div class="detail-drawer__content">
+      <span class="chip">{{ selected.category | titlecase }}</span>
+      <h3>{{ selected.name }}</h3>
+      <p class="muted">{{ selected.description }}</p>
+      <div class="pill-group" *ngIf="selected.tags?.length">
+        <span class="pill" *ngFor="let tag of selected.tags">{{ tag }}</span>
+      </div>
+      <p class="detail-drawer__price">R$ {{ selected.price | number : '1.2-2' }}</p>
+      <small class="muted">Adicione e calcule frete/checkout no resumo de carrinho.</small>
+      <div class="detail-drawer__actions">
+        <button type="button" class="primary-btn" (click)="addToCart(selected)">Adicionar ao carrinho</button>
+        <button type="button" class="ghost-btn" (click)="closeAccessory()">Continuar olhando</button>
+      </div>
+    </div>
   </div>
 </section>

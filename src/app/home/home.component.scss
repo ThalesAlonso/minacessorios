@@ -133,6 +133,10 @@
   position: relative;
   padding: 1.25rem;
   background: radial-gradient(circle at 30% 20%, #ffe6f0, #fff 65%);
+  width: 100%;
+  border: none;
+  cursor: pointer;
+  text-align: left;
 }
 
 .card__visual img {
@@ -206,6 +210,13 @@
   font-weight: 600;
 }
 
+.card__actions {
+  display: flex;
+  gap: 0.5rem;
+  justify-content: space-between;
+  align-items: center;
+}
+
 .collections {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
@@ -260,6 +271,73 @@
   background: color-mix(in srgb, var(--accent) 15%, #fff 85%);
 }
 
+.detail-drawer {
+  position: fixed;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  z-index: 10;
+}
+
+.detail-drawer__backdrop {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.32);
+  backdrop-filter: blur(3px);
+}
+
+.detail-drawer__card {
+  position: relative;
+  background: #fff;
+  border-radius: 20px;
+  border: 1px solid rgba(28, 27, 32, 0.08);
+  max-width: 900px;
+  width: min(90vw, 960px);
+  padding: 1.25rem;
+  box-shadow: 0 20px 60px rgba(12, 10, 20, 0.25);
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.25rem;
+  z-index: 1;
+}
+
+.detail-drawer__close {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  border: 1px solid rgba(28, 27, 32, 0.1);
+  background: #fff;
+  border-radius: 12px;
+  padding: 0.45rem 0.75rem;
+  cursor: pointer;
+  font-weight: 700;
+}
+
+.detail-drawer__media img {
+  width: 100%;
+  border-radius: 16px;
+  background: #faf7fb;
+  box-shadow: 0 14px 30px rgba(12, 10, 20, 0.12);
+}
+
+.detail-drawer__content {
+  display: grid;
+  gap: 0.65rem;
+}
+
+.detail-drawer__price {
+  margin: 0;
+  font-size: 1.6rem;
+  font-weight: 800;
+  color: #1c1b20;
+}
+
+.detail-drawer__actions {
+  display: flex;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+}
+
 @media (max-width: 1080px) {
   .hero {
     grid-template-columns: 1fr;
@@ -274,5 +352,10 @@
 
   .hero__stats {
     grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+  }
+
+  .detail-drawer__card {
+    grid-template-columns: 1fr;
+    width: 94vw;
   }
 }

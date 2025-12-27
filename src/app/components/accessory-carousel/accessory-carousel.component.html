@@ -1,18 +1,18 @@
 <section class="carousel" [style.--accent]="accent">
   <header class="carousel__header">
     <div>
-      <p class="eyebrow">Seleção feita à mão</p>
+      <p class="eyebrow">Selecao feita a mao</p>
       <h2 class="carousel__title">{{ title }}</h2>
       <p class="carousel__subtitle" *ngIf="subtitle">{{ subtitle }}</p>
     </div>
     <div class="carousel__controls" aria-label="Controles do carrossel">
-      <button type="button" class="ghost" (click)="previous()" aria-label="Anterior">←</button>
-      <button type="button" class="ghost" (click)="next()" aria-label="Próximo">→</button>
+      <button type="button" class="ghost" (click)="previous()" aria-label="Anterior">&#8592;</button>
+      <button type="button" class="ghost" (click)="next()" aria-label="Proximo">&#8594;</button>
     </div>
   </header>
 
   <div class="carousel__body" *ngIf="activeItem as item">
-    <figure class="visual">
+    <figure class="visual" (click)="viewItem(item)">
       <div class="visual__backdrop"></div>
       <img class="visual__image" [src]="item.image" [alt]="item.name" loading="lazy" />
       <div class="visual__badge" *ngIf="item.badge">{{ item.badge }}</div>
@@ -32,12 +32,12 @@
           <p class="price-row__label">Pronta entrega</p>
           <p class="price-row__price">R$ {{ item.price | number : '1.2-2' }}</p>
         </div>
-        <button type="button" class="ghost">Ver detalhes</button>
+        <button type="button" class="ghost" (click)="viewItem(item)">Ver detalhes</button>
       </div>
 
       <div class="actions">
-        <button type="button" class="primary">Adicionar ao carrinho</button>
-        <button type="button" class="secondary">Favoritar</button>
+        <button type="button" class="primary" (click)="addItem(item)">Adicionar ao carrinho</button>
+        <button type="button" class="secondary" (click)="viewItem(item)">Ver fotos</button>
       </div>
     </div>
   </div>

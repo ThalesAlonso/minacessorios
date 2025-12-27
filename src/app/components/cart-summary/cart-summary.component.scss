@@ -1,0 +1,150 @@
+.cart {
+  border: 1px solid rgba(28, 27, 32, 0.08);
+  border-radius: 18px;
+  padding: 1rem;
+  background: #fff;
+  box-shadow: 0 10px 30px rgba(12, 10, 20, 0.08);
+  display: grid;
+  gap: 0.85rem;
+}
+
+.cart__header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.cart__badge {
+  background: #f4e4fa;
+  color: #4b4458;
+  padding: 0.35rem 0.75rem;
+  border-radius: 999px;
+  font-weight: 700;
+}
+
+.cart__items {
+  display: grid;
+  gap: 0.5rem;
+}
+
+.cart__item {
+  display: grid;
+  grid-template-columns: 1fr auto auto auto;
+  gap: 0.75rem;
+  align-items: center;
+  border: 1px solid rgba(28, 27, 32, 0.05);
+  border-radius: 12px;
+  padding: 0.75rem;
+}
+
+.cart__item-title {
+  margin: 0;
+  font-weight: 700;
+}
+
+.cart__item-info small {
+  display: block;
+}
+
+.cart__qty {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+}
+
+.cart__qty button {
+  width: 28px;
+  height: 28px;
+  border-radius: 8px;
+  border: 1px solid rgba(28, 27, 32, 0.1);
+  background: #f7f3fa;
+  cursor: pointer;
+}
+
+.cart__price {
+  font-weight: 800;
+  color: #1c1b20;
+}
+
+.cart__remove {
+  border: none;
+  background: transparent;
+  color: #c81c6f;
+  cursor: pointer;
+  font-weight: 700;
+}
+
+.cart__shipping {
+  display: grid;
+  gap: 0.6rem;
+  padding: 0.75rem;
+  border-radius: 12px;
+  background: #f9f6fb;
+  border: 1px solid rgba(28, 27, 32, 0.05);
+}
+
+.cart__shipping-row {
+  display: grid;
+  gap: 0.35rem;
+}
+
+.cart__shipping-row input {
+  border-radius: 10px;
+  border: 1px solid rgba(28, 27, 32, 0.12);
+  padding: 0.65rem 0.75rem;
+}
+
+.cart__methods {
+  display: grid;
+  gap: 0.4rem;
+}
+
+.method {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  align-items: center;
+  gap: 0.45rem;
+  padding: 0.55rem 0.75rem;
+  border-radius: 10px;
+  border: 1px solid rgba(28, 27, 32, 0.08);
+  background: #fff;
+}
+
+.cart__totals {
+  display: grid;
+  gap: 0.35rem;
+  border-top: 1px solid rgba(28, 27, 32, 0.08);
+  padding-top: 0.65rem;
+}
+
+.cart__totals .row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.row--total {
+  font-size: 1.1rem;
+}
+
+.cart__payments {
+  display: grid;
+  gap: 0.45rem;
+}
+
+.paypal-btn {
+  background: #ffc439;
+  color: #1c1b20;
+  border: none;
+  padding: 0.85rem 1rem;
+  border-radius: 12px;
+  font-weight: 800;
+  cursor: pointer;
+}
+
+@media (max-width: 720px) {
+  .cart__item {
+    grid-template-columns: 1fr;
+    align-items: flex-start;
+  }
+}

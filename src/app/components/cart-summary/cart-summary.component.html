@@ -1,0 +1,100 @@
+<section class="cart">
+  <header class="cart__header">
+    <div>
+      <p class="eyebrow">Carrinho</p>
+      <h3>Itens e frete</h3>
+    </div>
+    <div class="cart__badge" *ngIf="totalQuantity$ | async as qty">{{ qty }} item(s)</div>
+  </header>
+
+  <ng-container *ngIf="items$ | async as items; else emptyCart">
+    <div class="cart__items">
+      <article class="cart__item" *ngFor="let item of items; trackBy: trackByItem">
+        <div class="cart__item-info">
+          <p class="cart__item-title">{{ item.product.name }}</p>
+          <small class="muted">{{ item.product.category | titlecase }}</small>
+        </div>
+        <div class="cart__qty">
+          <button type="button" (click)="updateQty(item, item.quantity - 1)">-</button>
+          <span>{{ item.quantity }}</span>
+          <button type="button" (click)="updateQty(item, item.quantity + 1)">+</button>
+        </div>
+        <div class="cart__price">R$ {{ item.product.price * item.quantity | number : '1.2-2' }}</div>
+        <button type="button" class="cart__remove" (click)="remove(item)">Remover</button>
+      </article>
+    </div>
+
+    <form class="cart__shipping" (ngSubmit)="applyShipping()">
+      <div class="cart__shipping-row">
+        <label for="cep">CEP</label>
+        <input
+          id="cep"
+          name="cep"
+          [(ngModel)]="cep"
+          placeholder="00000000"
+          pattern="\\d{8}"
+          inputmode="numeric"
+        />
+      </div>
+      <div class="cart__shipping-row">
+        <label>Entrega</label>
+        <div class="cart__methods">
+          <label class="method">
+            <input type="radio" name="method" [(ngModel)]="shippingMethod" value="economica" />
+            <span>
+              <strong>Economica</strong>
+              <small>3-6 dias uteis</small>
+            </span>
+          </label>
+          <label class="method">
+            <input type="radio" name="method" [(ngModel)]="shippingMethod" value="expressa" />
+            <span>
+              <strong>Expressa</strong>
+              <small>1-2 dias uteis</small>
+            </span>
+          </label>
+          <label class="method">
+            <input type="radio" name="method" [(ngModel)]="shippingMethod" value="retirada" />
+            <span>
+              <strong>Retirada</strong>
+              <small>Sem frete</small>
+            </span>
+          </label>
+        </div>
+      </div>
+      <button class="primary-btn" type="submit">Calcular frete</button>
+    </form>
+
+    <ng-container *ngIf="(subtotal$ | async) as subtotal">
+      <ng-container *ngIf="(shipping$ | async) as shipping">
+        <ng-container *ngIf="(total$ | async) as total">
+          <div class="cart__totals">
+            <div class="row">
+              <span>Subtotal</span>
+              <strong>R$ {{ subtotal | number : '1.2-2' }}</strong>
+            </div>
+            <div class="row">
+              <span>Frete ({{ shipping.method }})</span>
+              <strong>R$ {{ shipping.cost | number : '1.2-2' }}</strong>
+            </div>
+            <div class="row row--total">
+              <span>Total</span>
+              <strong>R$ {{ total | number : '1.2-2' }}</strong>
+            </div>
+            <small class="muted">Entrega estimada: {{ shipping.eta }}</small>
+          </div>
+        </ng-container>
+      </ng-container>
+    </ng-container>
+
+    <div class="cart__payments">
+      <button type="button" class="paypal-btn" (click)="checkout('paypal')">Checkout com PayPal</button>
+      <button type="button" class="primary-btn" (click)="checkout('credit')">Cartao de credito</button>
+      <small class="muted">Simulacao: conecte seu client ID do PayPal ou gateway de cartao para cobrar de verdade.</small>
+    </div>
+  </ng-container>
+
+  <ng-template #emptyCart>
+    <p class="muted">Clique em um laco para ver detalhes e adicionar ao carrinho.</p>
+  </ng-template>
+</section>

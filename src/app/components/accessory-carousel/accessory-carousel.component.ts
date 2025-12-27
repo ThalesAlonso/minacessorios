@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { Component, Input, OnDestroy, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnDestroy, OnInit, Output } from '@angular/core';
 import { interval, Subject, takeUntil } from 'rxjs';
 import { Accessory } from '../../models/accessory';
 
@@ -12,11 +12,13 @@ import { Accessory } from '../../models/accessory';
 })
 export class AccessoryCarouselComponent implements OnInit, OnDestroy {
   @Input() items: Accessory[] = [];
-  @Input() title = 'Coleção em destaque';
+  @Input() title = 'Colecao em destaque';
   @Input() subtitle?: string;
   @Input() accent = '#f35b92';
   @Input() autoPlay = true;
   @Input() intervalMs = 5400;
+  @Output() view = new EventEmitter<Accessory>();
+  @Output() add = new EventEmitter<Accessory>();
 
   activeIndex = 0;
   private readonly destroy$ = new Subject<void>();
@@ -52,5 +54,17 @@ export class AccessoryCarouselComponent implements OnInit, OnDestroy {
 
   get activeItem(): Accessory | undefined {
     return this.items[this.activeIndex];
+  }
+
+  viewItem(item?: Accessory): void {
+    if (item) {
+      this.view.emit(item);
+    }
+  }
+
+  addItem(item?: Accessory): void {
+    if (item) {
+      this.add.emit(item);
+    }
   }
 }

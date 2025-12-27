@@ -1,4 +1,4 @@
-# Mina Acessórios
+# MinAcessórios
 
 Site vitrine em Angular para laços de cabelo e acessórios femininos, pronto para receber integração futura de carrinho e pagamento via PayPal.
 

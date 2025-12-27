@@ -39,9 +39,7 @@
               "outputHashing": "all"
             },
             "development": {
-              "buildOptimizer": false,
               "optimization": false,
-              "vendorChunk": true,
               "extractLicenses": false,
               "sourceMap": true,
               "namedChunks": true
@@ -74,5 +72,7 @@
       }
     }
   },
-  "defaultProject": "minacessorios"
+  "cli": {
+    "analytics": "a87716b7-1357-422c-ab2b-5bf092195799"
+  }
 }

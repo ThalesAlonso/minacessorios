@@ -8,6 +8,7 @@ import {
   HERO_ACCESSORIES,
   NEW_ARRIVALS
 } from '../data/accessories.data';
+import { CartService } from '../services/cart.service';
 
 @Component({
   selector: 'app-home',
@@ -21,4 +22,20 @@ export class HomeComponent {
   readonly newArrivals: Accessory[] = NEW_ARRIVALS;
   readonly highlights: FeatureHighlight[] = FEATURE_HIGHLIGHTS;
   readonly collections = COLLECTIONS;
+
+  selectedAccessory?: Accessory;
+
+  constructor(private readonly cart: CartService) {}
+
+  openAccessory(accessory: Accessory): void {
+    this.selectedAccessory = accessory;
+  }
+
+  closeAccessory(): void {
+    this.selectedAccessory = undefined;
+  }
+
+  addToCart(accessory: Accessory): void {
+    this.cart.addItem(accessory);
+  }
 }

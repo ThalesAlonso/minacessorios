@@ -87,6 +87,23 @@
   min-height: 100vh;
 }
 
+.page__grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 340px;
+  gap: 1rem;
+  padding: 0 1.5rem 1.5rem;
+  align-items: start;
+}
+
+.page__cart {
+  position: sticky;
+  top: 96px;
+}
+
+.page__main {
+  min-width: 0;
+}
+
 .footer {
   display: grid;
   grid-template-columns: 1fr auto;
@@ -147,5 +164,13 @@
 
   .footer {
     grid-template-columns: 1fr;
+  }
+
+  .page__grid {
+    grid-template-columns: 1fr;
+  }
+
+  .page__cart {
+    position: static;
   }
 }
