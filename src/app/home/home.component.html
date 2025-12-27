@@ -1,0 +1,113 @@
+<section class="hero" id="hero">
+  <div class="hero__content">
+    <p class="hero__eyebrow">Lançamentos em laços de cabelo</p>
+    <h1>Laços delicados para quem quer brilhar com conforto o dia todo.</h1>
+    <p class="hero__text">
+      Curadoria de laços, tiaras e acessórios femininos feitos à mão, com materiais hipoalergênicos e acabamento
+      premium. Catálogo pronto para receber carrinho, checkout e PayPal.
+    </p>
+    <div class="hero__actions">
+      <a class="primary-btn" href="#novidades">Ver novidades</a>
+      <a class="ghost-btn" href="#colecoes">Coleções</a>
+    </div>
+    <div class="hero__stats">
+      <div>
+        <p class="hero__number">+3500</p>
+        <p class="hero__label">Clientes com laços sem marcar o cabelo</p>
+      </div>
+      <div>
+        <p class="hero__number">24h</p>
+        <p class="hero__label">Envio rápido com rastreio</p>
+      </div>
+      <div>
+        <p class="hero__number">Pronto</p>
+        <p class="hero__label">Integração PayPal e carrinho em desenvolvimento</p>
+      </div>
+    </div>
+  </div>
+  <div class="hero__carousel">
+    <app-accessory-carousel
+      [items]="heroAccessories"
+      title="Favoritos da semana"
+      subtitle="Os laços mais pedidos com novos acabamentos e fitas exclusivas."
+    ></app-accessory-carousel>
+  </div>
+</section>
+
+<section class="section" id="novidades">
+  <header class="section__header">
+    <div>
+      <p class="eyebrow">Novidades</p>
+      <h2>Chegaram agora na Mina</h2>
+      <p class="muted">
+        Itens com estoque limitado, feitos com cuidado para acompanhar desde o uniforme da escola até o look de festa.
+      </p>
+    </div>
+    <a class="ghost-btn" href="#contato">Avise-me quando lançar o checkout</a>
+  </header>
+
+  <div class="grid">
+    <article class="card" *ngFor="let item of newArrivals">
+      <div class="card__visual">
+        <img [src]="item.image" [alt]="item.name" loading="lazy" />
+        <div class="swatches" *ngIf="item.colors?.length">
+          <span class="swatch" *ngFor="let color of item.colors" [style.background]="color"></span>
+        </div>
+      </div>
+      <div class="card__body">
+        <div class="card__meta">
+          <span class="chip chip--soft">{{ item.category | titlecase }}</span>
+          <span class="price">R$ {{ item.price | number : '1.2-2' }}</span>
+        </div>
+        <h3>{{ item.name }}</h3>
+        <p class="muted">{{ item.description }}</p>
+        <div class="pill-group" *ngIf="item.tags?.length">
+          <span class="pill" *ngFor="let tag of item.tags">{{ tag }}</span>
+        </div>
+      </div>
+    </article>
+  </div>
+</section>
+
+<section class="section section--surface" id="colecoes">
+  <header class="section__header">
+    <div>
+      <p class="eyebrow">Coleções exclusivas</p>
+      <h2>Para cada momento, um laço</h2>
+      <p class="muted">
+        Kits e peças únicas com acabamento premium. Ideal para fotos, eventos e presentes especiais.
+      </p>
+    </div>
+    <a class="primary-btn" href="#contato">Quero reservar</a>
+  </header>
+
+  <div class="collections">
+    <article class="collection" *ngFor="let collection of collections">
+      <div class="collection__badge" [style.background]="collection.accent + '1a'">{{ collection.badge }}</div>
+      <h3>{{ collection.title }}</h3>
+      <p class="muted">{{ collection.detail }}</p>
+      <button class="ghost">Ver peças</button>
+    </article>
+  </div>
+</section>
+
+<section class="section">
+  <header class="section__header">
+    <div>
+      <p class="eyebrow">Experiência de compra</p>
+      <h2>Pronto para integrar carrinho e PayPal</h2>
+      <p class="muted">
+        Estrutura planejada para autenticação, carrinho, preferências de entrega e checkout seguro. Ideal para escalar
+        sua operação de acessórios femininos.
+      </p>
+    </div>
+  </header>
+
+  <div class="highlights">
+    <article class="highlight" *ngFor="let item of highlights" [style.--accent]="item.accent">
+      <div class="highlight__icon">{{ item.icon }}</div>
+      <h3>{{ item.title }}</h3>
+      <p class="muted">{{ item.description }}</p>
+    </article>
+  </div>
+</section>

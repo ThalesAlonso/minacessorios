@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 200" role="img" aria-label="Laço Classic Nude">
+  <defs>
+    <linearGradient id="nude" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#fbe4e8" />
+      <stop offset="100%" stop-color="#f1bcc6" />
+    </linearGradient>
+  </defs>
+  <rect width="320" height="200" rx="28" fill="#fff8fb" />
+  <path
+    d="M54 116c32-12 58-44 82-46 11-1 20 6 24 20-4-14 7-23 23-22 26 2 57 26 83 46-32 12-69 30-91 30-14 0-26-10-29-24 3 14-7 23-22 24-26 1-60-20-70-28Z"
+    fill="url(#nude)"
+    opacity=".95"
+  />
+  <rect x="138" y="88" width="44" height="44" rx="12" fill="#f6ccd7" />
+  <rect x="146" y="96" width="28" height="28" rx="8" fill="#fff" opacity=".7" />
+</svg>

@@ -1,0 +1,55 @@
+<section class="carousel" [style.--accent]="accent">
+  <header class="carousel__header">
+    <div>
+      <p class="eyebrow">Seleção feita à mão</p>
+      <h2 class="carousel__title">{{ title }}</h2>
+      <p class="carousel__subtitle" *ngIf="subtitle">{{ subtitle }}</p>
+    </div>
+    <div class="carousel__controls" aria-label="Controles do carrossel">
+      <button type="button" class="ghost" (click)="previous()" aria-label="Anterior">←</button>
+      <button type="button" class="ghost" (click)="next()" aria-label="Próximo">→</button>
+    </div>
+  </header>
+
+  <div class="carousel__body" *ngIf="activeItem as item">
+    <figure class="visual">
+      <div class="visual__backdrop"></div>
+      <img class="visual__image" [src]="item.image" [alt]="item.name" loading="lazy" />
+      <div class="visual__badge" *ngIf="item.badge">{{ item.badge }}</div>
+    </figure>
+
+    <div class="details">
+      <span class="chip">{{ item.category | titlecase }}</span>
+      <h3 class="details__title">{{ item.name }}</h3>
+      <p class="details__description">{{ item.description }}</p>
+
+      <div class="tags" *ngIf="item.tags?.length">
+        <span class="tag" *ngFor="let tag of item.tags">{{ tag }}</span>
+      </div>
+
+      <div class="price-row">
+        <div>
+          <p class="price-row__label">Pronta entrega</p>
+          <p class="price-row__price">R$ {{ item.price | number : '1.2-2' }}</p>
+        </div>
+        <button type="button" class="ghost">Ver detalhes</button>
+      </div>
+
+      <div class="actions">
+        <button type="button" class="primary">Adicionar ao carrinho</button>
+        <button type="button" class="secondary">Favoritar</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="indicators" *ngIf="items.length > 1">
+    <button
+      type="button"
+      class="indicator"
+      *ngFor="let accessory of items; let i = index; trackBy: trackByName"
+      (click)="goTo(i)"
+      [class.indicator--active]="i === activeIndex"
+      [attr.aria-label]="'Ir para ' + accessory.name"
+    ></button>
+  </div>
+</section>

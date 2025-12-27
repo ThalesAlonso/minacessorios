@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 200" role="img" aria-label="Tiara Velvet Moon">
+  <defs>
+    <linearGradient id="velvet" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#2c1f35" />
+      <stop offset="100%" stop-color="#9b78c7" />
+    </linearGradient>
+  </defs>
+  <rect width="320" height="200" rx="28" fill="#f7f2fb" />
+  <path
+    d="M70 128c27-52 60-76 96-76s69 24 96 76"
+    fill="none"
+    stroke="url(#velvet)"
+    stroke-width="18"
+    stroke-linecap="round"
+  />
+  <path
+    d="M90 122c22-40 48-60 76-60 28 0 54 20 76 60"
+    fill="none"
+    stroke="#f2e9ff"
+    stroke-width="6"
+    stroke-linecap="round"
+  />
+  <circle cx="160" cy="52" r="14" fill="#f0e5f7" stroke="#b28dd8" stroke-width="4" />
+</svg>

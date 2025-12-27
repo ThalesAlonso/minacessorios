@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 200" role="img" aria-label="Laço Aurora Boreal">
+  <defs>
+    <linearGradient id="grad" x1="0%" x2="100%" y1="0%" y2="100%">
+      <stop offset="0%" stop-color="#ff7fb4" />
+      <stop offset="50%" stop-color="#ffd6ea" />
+      <stop offset="100%" stop-color="#7fc7ff" />
+    </linearGradient>
+    <linearGradient id="center" x1="0%" x2="100%" y1="0%" y2="0%">
+      <stop offset="0%" stop-color="#f44d92" />
+      <stop offset="100%" stop-color="#ff8cc1" />
+    </linearGradient>
+  </defs>
+  <rect width="320" height="200" rx="28" fill="#fdf7fb" />
+  <rect x="22" y="18" width="276" height="164" rx="22" fill="url(#grad)" opacity=".4" />
+  <path
+    d="M45 105c25-18 62-46 90-43 11 1 20 8 24 21-4-13-2-21 5-27 16-14 57 5 111 49-38 8-67 19-88 31-11 6-21 7-30 3-9-4-16-12-21-25 3 13 2 22-4 28-13 12-47-1-87-25Z"
+    fill="url(#grad)"
+    opacity=".9"
+  />
+  <rect x="132" y="82" width="56" height="56" rx="12" fill="url(#center)" />
+  <circle cx="160" cy="110" r="18" fill="#fff" opacity=".7" />
+  <circle cx="160" cy="110" r="10" fill="url(#center)" />
+</svg>

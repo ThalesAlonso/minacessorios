@@ -1,0 +1,250 @@
+:host {
+  display: block;
+  border: 1px solid rgba(28, 27, 32, 0.06);
+  border-radius: 22px;
+  padding: 1.25rem;
+  background: #fff;
+  box-shadow: 0 14px 45px rgba(12, 10, 20, 0.06);
+  --accent: #f35b92;
+}
+
+.carousel {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+.carousel__header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+}
+
+.eyebrow {
+  color: color-mix(in srgb, var(--accent) 75%, #1c1b20 25%);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  font-weight: 800;
+  font-size: 0.75rem;
+  margin: 0 0 0.15rem 0;
+}
+
+.carousel__title {
+  margin: 0;
+  font-size: 1.45rem;
+  color: #1c1b20;
+}
+
+.carousel__subtitle {
+  margin: 0.15rem 0 0;
+  color: #5b5564;
+  max-width: 680px;
+}
+
+.carousel__controls {
+  display: inline-flex;
+  gap: 0.5rem;
+}
+
+.carousel__body {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.25rem;
+  align-items: center;
+}
+
+.visual {
+  position: relative;
+  padding: 1rem;
+  border-radius: 20px;
+  overflow: hidden;
+  min-height: 320px;
+  display: grid;
+  place-items: center;
+  isolation: isolate;
+}
+
+.visual__backdrop {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at 20% 20%, color-mix(in srgb, var(--accent) 50%, #fff 50%), transparent 45%),
+    radial-gradient(circle at 80% 20%, #ffe2ef, transparent 35%),
+    linear-gradient(135deg, color-mix(in srgb, var(--accent) 80%, #ffd9ec 20%), #ffe6f2);
+  opacity: 0.9;
+  z-index: 1;
+}
+
+.visual__image {
+  position: relative;
+  z-index: 2;
+  width: min(360px, 100%);
+  border-radius: 18px;
+  box-shadow: 0 30px 50px rgba(16, 12, 24, 0.22);
+  background: #fff;
+}
+
+.visual__badge {
+  position: absolute;
+  z-index: 3;
+  top: 14px;
+  right: 14px;
+  background: #fff;
+  color: var(--accent);
+  padding: 0.55rem 0.9rem;
+  border-radius: 999px;
+  font-weight: 800;
+  box-shadow: 0 16px 30px rgba(243, 91, 146, 0.25);
+}
+
+.details {
+  display: grid;
+  gap: 0.65rem;
+  align-content: center;
+}
+
+.chip {
+  width: fit-content;
+  padding: 0.25rem 0.65rem;
+  border-radius: 999px;
+  background: #fce7f1;
+  color: #c81c6f;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+}
+
+.details__title {
+  margin: 0;
+  font-size: 1.5rem;
+  color: #1c1b20;
+}
+
+.details__description {
+  margin: 0;
+  color: #5b5564;
+  line-height: 1.65;
+}
+
+.tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.tag {
+  padding: 0.4rem 0.7rem;
+  border-radius: 12px;
+  background: #f7f3fa;
+  color: #51465f;
+  font-weight: 600;
+}
+
+.price-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.85rem 1rem;
+  border-radius: 16px;
+  background: #fff5fa;
+}
+
+.price-row__label {
+  margin: 0;
+  color: #5b5564;
+}
+
+.price-row__price {
+  margin: 0.25rem 0 0;
+  font-size: 1.45rem;
+  font-weight: 800;
+  color: color-mix(in srgb, var(--accent) 90%, #1c1b20 10%);
+}
+
+.actions {
+  display: flex;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+}
+
+.primary,
+.secondary,
+.ghost {
+  border: none;
+  cursor: pointer;
+  font-weight: 700;
+  border-radius: 14px;
+  padding: 0.8rem 1.2rem;
+  transition: transform 150ms ease, box-shadow 150ms ease, background 150ms ease, color 150ms ease;
+}
+
+.primary {
+  background: linear-gradient(135deg, color-mix(in srgb, var(--accent) 70%, #ff9fc0 30%), var(--accent));
+  color: #fff;
+  box-shadow: 0 16px 32px rgba(243, 91, 146, 0.35);
+
+  &:hover,
+  &:focus-visible {
+    transform: translateY(-2px);
+  }
+}
+
+.secondary {
+  background: #f8f5fb;
+  color: #4b4458;
+  border: 1px solid rgba(28, 27, 32, 0.06);
+
+  &:hover,
+  &:focus-visible {
+    background: #f1eaf8;
+  }
+}
+
+.ghost {
+  background: transparent;
+  color: #4b4458;
+  border: 1px solid rgba(28, 27, 32, 0.12);
+}
+
+.indicators {
+  display: flex;
+  gap: 0.4rem;
+  align-items: center;
+  justify-content: center;
+}
+
+.indicator {
+  width: 38px;
+  height: 6px;
+  border-radius: 999px;
+  background: #ebe5f1;
+  border: none;
+  cursor: pointer;
+  transition: background 150ms ease, width 150ms ease;
+
+  &--active {
+    background: color-mix(in srgb, var(--accent) 85%, #fff 15%);
+    width: 54px;
+  }
+}
+
+@media (max-width: 960px) {
+  .carousel__body {
+    grid-template-columns: 1fr;
+  }
+
+  .visual {
+    min-height: 260px;
+  }
+}
+
+@media (max-width: 640px) {
+  .carousel__header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .actions {
+    flex-direction: column;
+    align-items: stretch;
+  }
+}
