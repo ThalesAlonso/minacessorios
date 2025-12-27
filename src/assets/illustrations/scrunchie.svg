@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 200" role="img" aria-label="Scrunchie Seda Blush">
+  <defs>
+    <linearGradient id="scrunch" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#ffd8e9" />
+      <stop offset="100%" stop-color="#f7a2c4" />
+    </linearGradient>
+  </defs>
+  <rect width="320" height="200" rx="28" fill="#fff7fb" />
+  <path
+    d="M160 64c26 0 54 18 54 44s-28 44-54 44-54-18-54-44 28-44 54-44Z"
+    fill="url(#scrunch)"
+    opacity=".9"
+  />
+  <path
+    d="M160 82c16 0 32 10 32 26s-16 26-32 26-32-10-32-26 16-26 32-26Z"
+    fill="#fff"
+    opacity=".5"
+  />
+  <circle cx="160" cy="108" r="12" fill="#f06b9a" />
+</svg>

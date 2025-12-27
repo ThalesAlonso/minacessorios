@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 200" role="img" aria-label="Hairpin Pérola Solar">
+  <defs>
+    <linearGradient id="pin" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#f3d4cf" />
+      <stop offset="100%" stop-color="#fbe9da" />
+    </linearGradient>
+  </defs>
+  <rect width="320" height="200" rx="28" fill="#fffaf3" />
+  <rect x="70" y="94" width="180" height="12" rx="6" fill="url(#pin)" stroke="#e2b79e" stroke-width="3" />
+  <circle cx="90" cy="100" r="16" fill="#fff" stroke="#f3d4cf" stroke-width="6" />
+  <circle cx="130" cy="100" r="12" fill="#fff" stroke="#f3d4cf" stroke-width="4" />
+  <circle cx="170" cy="100" r="10" fill="#fff" stroke="#f3d4cf" stroke-width="3" />
+  <circle cx="210" cy="100" r="8" fill="#fff" stroke="#f3d4cf" stroke-width="3" />
+</svg>

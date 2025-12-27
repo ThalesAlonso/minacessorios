@@ -1,0 +1,24 @@
+import { CommonModule } from '@angular/common';
+import { Component } from '@angular/core';
+import { AccessoryCarouselComponent } from '../components/accessory-carousel/accessory-carousel.component';
+import { Accessory, FeatureHighlight } from '../models/accessory';
+import {
+  COLLECTIONS,
+  FEATURE_HIGHLIGHTS,
+  HERO_ACCESSORIES,
+  NEW_ARRIVALS
+} from '../data/accessories.data';
+
+@Component({
+  selector: 'app-home',
+  standalone: true,
+  imports: [CommonModule, AccessoryCarouselComponent],
+  templateUrl: './home.component.html',
+  styleUrl: './home.component.scss'
+})
+export class HomeComponent {
+  readonly heroAccessories: Accessory[] = HERO_ACCESSORIES;
+  readonly newArrivals: Accessory[] = NEW_ARRIVALS;
+  readonly highlights: FeatureHighlight[] = FEATURE_HIGHLIGHTS;
+  readonly collections = COLLECTIONS;
+}

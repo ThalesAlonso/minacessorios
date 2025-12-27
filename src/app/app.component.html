@@ -1,0 +1,35 @@
+<header class="top-nav">
+  <div class="brand">
+    <div class="brand__logo" aria-hidden="true">MA</div>
+    <div>
+      <div class="brand__name">{{ brandName }}</div>
+      <small class="brand__tagline">Laços de cabelo e acessórios femininos</small>
+    </div>
+  </div>
+  <nav class="menu" aria-label="Menu principal">
+    <a href="#hero" class="menu__link">Início</a>
+    <a href="#novidades" class="menu__link">Novidades</a>
+    <a href="#colecoes" class="menu__link">Coleções</a>
+    <a href="#contato" class="menu__link">Contato</a>
+  </nav>
+  <a class="primary-btn" href="#novidades">Quero ver as novidades</a>
+</header>
+
+<main class="page">
+  <router-outlet></router-outlet>
+</main>
+
+<footer class="footer" id="contato">
+  <div>
+    <p class="footer__title">{{ brandName }}</p>
+    <p class="footer__text">
+      Feito para quem ama laços e acessórios delicados. Cadastre-se para saber quando liberarmos o carrinho e pagamento
+      via PayPal.
+    </p>
+  </div>
+  <div class="footer__links">
+    <a href="mailto:contato@minacessorios.com">contato@minacessorios.com</a>
+    <a href="https://www.instagram.com" target="_blank" rel="noreferrer">Instagram</a>
+    <a href="https://www.pinterest.com" target="_blank" rel="noreferrer">Pinterest</a>
+  </div>
+</footer>

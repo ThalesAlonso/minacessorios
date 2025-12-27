@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 200" role="img" aria-label="Laço Garden Bloom">
+  <defs>
+    <linearGradient id="garden" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#f6d9d4" />
+      <stop offset="100%" stop-color="#f3b6a5" />
+    </linearGradient>
+  </defs>
+  <rect width="320" height="200" rx="28" fill="#fff7f2" />
+  <path
+    d="M46 116c30-18 64-48 92-46 11 1 20 7 24 19-4-12 5-21 17-22 26-2 60 24 95 48-32 12-66 30-89 30-13 0-24-9-28-22 4 13-5 22-18 22-26 0-64-24-93-29Z"
+    fill="url(#garden)"
+    opacity=".92"
+  />
+  <rect x="140" y="90" width="40" height="40" rx="12" fill="#f9c9b1" />
+  <g fill="#f08a67">
+    <circle cx="96" cy="70" r="6" />
+    <circle cx="120" cy="50" r="7" />
+    <circle cx="190" cy="58" r="6" />
+    <circle cx="226" cy="68" r="5" />
+  </g>
+</svg>

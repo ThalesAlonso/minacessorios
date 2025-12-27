@@ -1,0 +1,29 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 200" role="img" aria-label="Kit Mini Charming">
+  <defs>
+    <linearGradient id="kit1" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#ffe2ec" />
+      <stop offset="100%" stop-color="#f6a9c6" />
+    </linearGradient>
+    <linearGradient id="kit2" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#d2e7ff" />
+      <stop offset="100%" stop-color="#9fc4ff" />
+    </linearGradient>
+    <linearGradient id="kit3" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#fff1d0" />
+      <stop offset="100%" stop-color="#ffd184" />
+    </linearGradient>
+  </defs>
+  <rect width="320" height="200" rx="28" fill="#fdf7fb" />
+  <g transform="translate(70 60)">
+    <rect x="0" y="0" width="70" height="50" rx="14" fill="url(#kit1)" />
+    <rect x="10" y="10" width="50" height="30" rx="10" fill="#fff" opacity=".6" />
+  </g>
+  <g transform="translate(190 60)">
+    <rect x="0" y="0" width="70" height="50" rx="14" fill="url(#kit2)" />
+    <rect x="10" y="10" width="50" height="30" rx="10" fill="#fff" opacity=".6" />
+  </g>
+  <g transform="translate(130 120)">
+    <rect x="0" y="0" width="70" height="50" rx="14" fill="url(#kit3)" />
+    <rect x="10" y="10" width="50" height="30" rx="10" fill="#fff" opacity=".6" />
+  </g>
+</svg>
